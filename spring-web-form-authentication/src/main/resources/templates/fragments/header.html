@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+     <div class="container">
+     	<div class="main">
+     		<nav>
+     			<div class="logo">
+     				<h1>Anonymous</h1>
+     			</div>
+     			<ul>
+     				<li><a th:href="@{/}">Home</a></li>
+     				<li sec:authorize="isAuthenticated()"><a  th:href="@{/admin}">Admin User</a></li>
+     				<li sec:authorize="isAuthenticated()"><a  th:href="@{/user}">Normal User</a></li>
+     				<li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a></li>
+     				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+     			</ul>
+     		</nav>
+     	</div>
+     </div>
+</div>
+</body>
+</html>

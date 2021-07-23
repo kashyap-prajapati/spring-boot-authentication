@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <div class="home-container">
+    	<div class="page-header">
+    	      <span class="header">Home</span>
+    	</div>
+    	<div class="page-body">
+    		<ul class="link-listing">
+    			<li><a th:href="@{/admin}">Admin page</a><span class="seperation">:</span>
+    				<p>Admin user access this page</p>
+    			</li>
+    			<li><a th:href="@{/user}">User page</a><span  class="seperation">:</span>
+    				<p>Normal User access this page </p>
+    			</li>
+    			<li>
+    				<a th:href="@{/about}">About page</a><span  class="seperation">:</span>
+    				<p>Any user access this page</p>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

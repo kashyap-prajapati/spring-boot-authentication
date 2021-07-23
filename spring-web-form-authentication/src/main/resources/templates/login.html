@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Login</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+    <div class="home-container">
+		<div class="page-body">
+		    <div class="row row-login">
+		    	<div class="login-box">
+		    		<div class="login-form" id="login-form">
+		    			<div class="top-space">
+		    				<h1>LOGIN</h1>
+		    			</div>
+		    			<div th:if="${param.error}">
+		                        <div class="alert alert-danger">
+		                            Invalid username and password.
+		                        </div>
+		                    </div>
+		                    <div th:if="${param.logout}">
+		                        <div class="alert alert-info">
+		                            You have been logged out.
+		                        </div>
+		                  </div>
+		    			<form th:action="@{/login}" method="post">
+		    				
+			    			<div class="form-username">
+				    			 <input type="text" name="username" id="username" class="form-control input-lg"
+				                               placeholder="Please Enter Username" required="true" autofocus="true"/>
+			    			</div>
+			    			<div class="form-password">
+			    				<input type="text" name="password" id="password" class="form-control input-lg"
+			                               placeholder="Please Enter Password" required="true" autofocus="true"/>
+			    			</div>
+			    			<div class="form-button">
+			    				<div class="form-signin-button">
+			    					<button type="submit" class="signin">Sign In</button>
+			    				</div>
+			    				<div class="form-signup-button">
+			    					<button type="button" class="signup" onclick="onSignup()">Sign Up</button>
+			    				</div>
+			    			</div>
+		    			</form>
+		    		</div>
+		    		<div class="signup-form" id="signup-form" style="display: none">
+		    			<div class="top-space">
+		    				<h1>SIGN UP</h1>
+		    			</div>
+		    			<div class="form-fistname">
+			    			 <input type="text" name="firstname" id="firstname" class="form-control input-lg"
+			                               placeholder="Please Enter First name" required="true" autofocus="true"/>
+		    			</div>
+		    			<div class="form-lastname">
+			    			 <input type="text" name="lastname" id="lastname" class="form-control input-lg"
+			                               placeholder="Please Enter Last name" required="true" autofocus="true"/>
+		    			</div>
+		    			<div class="form-emailid">
+			    			 <input type="text" name="emailid" id="emailid" class="form-control input-lg"
+			                               placeholder="Please Enter Email Id" required="true" autofocus="true"/>
+		    			</div>
+		    			<div class="form-username">
+			    			 <input type="text" name="username" id="username" class="form-control input-lg"
+			                               placeholder="Please Enter Username" required="true" autofocus="true"/>
+		    			</div>
+		    			<div class="form-password">
+		    				<input type="text" name="username" id="username" class="form-control input-lg"
+		                               placeholder="Please Enter Password" required="true" autofocus="true"/>
+		    			</div>
+		    			<div class="form-cpassword">
+		    				<input type="text" name="cpassword" id="cpassword" class="form-control input-lg"
+		                               placeholder="Please Enter Confirm Password" required="true" autofocus="true"/>
+		    			</div>
+		    			<div class="form-button">
+		    				<div class="form-signup-button">
+		    					<button type="button" class="signup" onclick="onSignup()">Sign Up</button>
+		    				</div>
+		    			</div>
+		    			<div class="form-button">
+		    				<div class="form-back-signin" id="form-back-signin">
+		    					<button type="button" class="signin" onclick="onSignIn()">Back to Login</button>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+ function onSignup(){
+ 	document.getElementById("login-form").style="display:none";
+ 	document.getElementById("signup-form").style="display:block";
+ }
+ function onSignIn(){
+ 	document.getElementById("login-form").style="display:block";
+ 	document.getElementById("signup-form").style="display:none";
+ }
+</script>
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
